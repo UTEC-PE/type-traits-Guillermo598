@@ -8,7 +8,10 @@ class SListIterator : public Iterator<T> {
     public: 
         SListIterator() : Iterator<T>() {};
         SListIterator(Node<T> *current) : Iterator<T>(current) {};
-        SListIterator<T> operator++();
+        SListIterator<T> operator++(){
+            current = current -> next;
+            return *this;
+        };
 };
 
 template <typename Tr>
@@ -40,11 +43,14 @@ class SList {
         }  
              
         iterator begin() {
-            // TODO
+            return iterator(this -> head);
         }
              
         iterator end() {
-            // TODO
+            Node<T>* temp = head;
+            while (temp -> next)
+                temp = temp -> next;
+            return iterator(temp);
         }
              
         ~SList() {

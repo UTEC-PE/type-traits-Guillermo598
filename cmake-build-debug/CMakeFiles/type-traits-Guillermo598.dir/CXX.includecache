@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/type-traits-Guillermo598/dlist.h
+iterator.h
+D:/Documents/GitHub/type-traits-Guillermo598/iterator.h
+
+D:/Documents/GitHub/type-traits-Guillermo598/iterator.h
+node.h
+D:/Documents/GitHub/type-traits-Guillermo598/node.h
+
+D:/Documents/GitHub/type-traits-Guillermo598/main.cpp
+iostream
+-
+slist.h
+D:/Documents/GitHub/type-traits-Guillermo598/slist.h
+dlist.h
+D:/Documents/GitHub/type-traits-Guillermo598/dlist.h
+
+D:/Documents/GitHub/type-traits-Guillermo598/node.h
+
+D:/Documents/GitHub/type-traits-Guillermo598/slist.h
+iterator.h
+D:/Documents/GitHub/type-traits-Guillermo598/iterator.h
+
