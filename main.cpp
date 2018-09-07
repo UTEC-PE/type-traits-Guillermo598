@@ -36,7 +36,7 @@ int main(int argc, char const *argv[]) {
     testSimpleLinkedList();
     testDoubleLinkedList();
 
-    cin.get();
+    //cin.get();
     return EXIT_SUCCESS;
 }
 

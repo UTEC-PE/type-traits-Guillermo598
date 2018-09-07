@@ -8,7 +8,10 @@ class SListIterator : public Iterator<T> {
     public: 
         SListIterator() : Iterator<T>() {};
         SListIterator(Node<T> *current) : Iterator<T>(current) {};
-        SListIterator<T> operator++();
+        SListIterator<T> operator++(){
+            this -> current = this -> current -> next;
+            return *this;
+        };
 };
 
 template <typename Tr>
@@ -28,23 +31,74 @@ class SList {
         };
 
         bool find(T search, Node<T> **&pointer) {
-            // TODO
+            if (head == NULL) {
+                throw ("Empty List");
+            }
+            else {
+                while ((*pointer) != NULL){
+                    if (cmp(search, (*pointer) -> data)) {
+                        if (search == (*pointer) -> data)
+                            return true;
+                        else
+                            pointer = &((*pointer) -> next);
+                    }
+                    else
+                        return false;
+                }
+                return false;
+            }
+
         }
              
         bool insert(T data) {
-            // TODO
+            if (head == NULL){
+                Node<T>* temp = new Node<T>(data);
+                temp -> next = NULL;
+                head = temp;
+                return true;
+            }
+            else {
+                Node<T>** aux = &head;
+                if (find(data, aux))
+                    return false;
+                else {
+                    Node<T>* temp = new Node<T>(data);
+                    temp -> next = (*aux);
+                    (*aux) = temp;
+                    return true;
+                }
+            }
+
+
         }
              
         bool remove(T item) {
-            // TODO
+            if (head == NULL)
+                throw ("Empty List");
+            else {
+                Node<T>** aux = &head;
+                if (find(item, aux)) {
+                    Node<T>* temp = (*aux);
+                    (*aux) = (*aux) -> next;
+                    delete temp;
+                    return true;
+                }
+                else
+                    throw ("Element Not Found");
+            }
+
+
         }  
              
         iterator begin() {
-            // TODO
+            return iterator(this -> head);
         }
              
         iterator end() {
-            // TODO
+            Node<T>* temp = head;
+            while (temp -> next)
+                temp = temp -> next;
+            return iterator(temp);
         }
              
         ~SList() {
