@@ -9,11 +9,11 @@ class DListIterator : public Iterator<T> {
         DListIterator() : Iterator<T>() {};
         DListIterator(Node<T> *current) : Iterator<T>(current) {};
         DListIterator<T> operator++(){
-            current = current -> next;
+            this -> current = this -> current -> next;
             return *this;
         };
         DListIterator<T> operator--(){
-            current = current -> prev;
+            this -> current = this -> current -> prev;
             return *this;
         };
 };
