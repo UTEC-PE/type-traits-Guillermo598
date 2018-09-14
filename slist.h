@@ -50,7 +50,7 @@ class SList {
 
         }
              
-        bool insert(T data) {
+        bool insert(T data) { // Tienes lógica repetida, el caso base no es necesario. Tendrías que borrar el if (head == NULL) del find
             if (head == NULL){
                 Node<T>* temp = new Node<T>(data);
                 temp -> next = NULL;
@@ -97,7 +97,7 @@ class SList {
         iterator end() {
             Node<T>* temp = head;
             while (temp -> next)
-                temp = temp -> next;
+                temp = temp -> next; // Podría ser un iterator(nullptr)
             return iterator(temp);
         }
              
